@@ -1,0 +1,159 @@
+{
+   "geocoded_waypoints" : [
+      {
+         "geocoder_status" : "OK",
+         "place_id" : "ChIJa6ie7nx51YkRkHcnp0Jdttw",
+         "types" : [ "establishment", "point_of_interest", "university" ]
+      },
+      {
+         "geocoder_status" : "OK",
+         "place_id" : "ChIJq6p6ZumM1YkRwlenRs5y5SY",
+         "types" : [ "establishment", "point_of_interest", "university" ]
+      }
+   ],
+   "routes" : [
+      {
+         "bounds" : {
+            "northeast" : {
+               "lat" : 44.34126,
+               "lng" : -78.7416585
+            },
+            "southwest" : {
+               "lat" : 44.3395131,
+               "lng" : -78.7444028
+            }
+         },
+         "copyrights" : "Map data ©2023",
+         "legs" : [
+            {
+               "distance" : {
+                  "text" : "0.4 km",
+                  "value" : 351
+               },
+               "duration" : {
+                  "text" : "4 mins",
+                  "value" : 250
+               },
+               "end_address" : "200 Albert St S, Lindsay, ON K9V 5E6, Canada",
+               "end_location" : {
+                  "lat" : 44.3410364,
+                  "lng" : -78.7416585
+               },
+               "start_address" : "1 Auk Trail, Lindsay, ON K9V 6G6, Canada",
+               "start_location" : {
+                  "lat" : 44.3395131,
+                  "lng" : -78.7444028
+               },
+               "steps" : [
+                  {
+                     "distance" : {
+                        "text" : "17 m",
+                        "value" : 17
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 12
+                     },
+                     "end_location" : {
+                        "lat" : 44.3396286,
+                        "lng" : -78.74430030000001
+                     },
+                     "html_instructions" : "Head \u003cb\u003enorth\u003c/b\u003e",
+                     "polyline" : {
+                        "points" : "}`smGnwr_NC?E?CACCCCAI"
+                     },
+                     "start_location" : {
+                        "lat" : 44.3395131,
+                        "lng" : -78.7444028
+                     },
+                     "travel_mode" : "WALKING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0.3 km",
+                        "value" : 269
+                     },
+                     "duration" : {
+                        "text" : "3 mins",
+                        "value" : 186
+                     },
+                     "end_location" : {
+                        "lat" : 44.3410702,
+                        "lng" : -78.74221349999999
+                     },
+                     "html_instructions" : "Turn \u003cb\u003eright\u003c/b\u003e",
+                     "maneuver" : "turn-right",
+                     "polyline" : {
+                        "points" : "uasmGzvr_N?I@G@EDGDAAo@AKCGEAC?AAE?wA_AGECCCECIAKCICOCOCKCIEGKISU_@c@CCGKMSIOKMIKEECAC@EL"
+                     },
+                     "start_location" : {
+                        "lat" : 44.3396286,
+                        "lng" : -78.74430030000001
+                     },
+                     "travel_mode" : "WALKING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "24 m",
+                        "value" : 24
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 17
+                     },
+                     "end_location" : {
+                        "lat" : 44.34126,
+                        "lng" : -78.7420679
+                     },
+                     "html_instructions" : "Turn \u003cb\u003eright\u003c/b\u003e",
+                     "maneuver" : "turn-right",
+                     "polyline" : {
+                        "points" : "ujsmGxir_Ne@["
+                     },
+                     "start_location" : {
+                        "lat" : 44.3410702,
+                        "lng" : -78.74221349999999
+                     },
+                     "travel_mode" : "WALKING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "41 m",
+                        "value" : 41
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 35
+                     },
+                     "end_location" : {
+                        "lat" : 44.3410364,
+                        "lng" : -78.7416585
+                     },
+                     "html_instructions" : "Turn \u003cb\u003eright\u003c/b\u003e\u003cdiv style=\"font-size:0.9em\"\u003eDestination will be on the left\u003c/div\u003e",
+                     "maneuver" : "turn-right",
+                     "polyline" : {
+                        "points" : "{ksmG|hr_Nj@qA"
+                     },
+                     "start_location" : {
+                        "lat" : 44.34126,
+                        "lng" : -78.7420679
+                     },
+                     "travel_mode" : "WALKING"
+                  }
+               ],
+               "traffic_speed_entry" : [],
+               "via_waypoint" : []
+            }
+         ],
+         "overview_polyline" : {
+            "points" : "}`smGnwr_NI?GEEM@QFMDAAo@ESIAGA_BeAGIEUOu@IQ_@_@y@gAe@o@G?ELe@[j@qA"
+         },
+         "summary" : "",
+         "warnings" : [
+            "Walking directions are in beta. Use caution – This route may be missing sidewalks or pedestrian paths."
+         ],
+         "waypoint_order" : []
+      }
+   ],
+   "status" : "OK"
+}
