@@ -9,7 +9,7 @@ Be creative and use multiple parameters from the API documentation to earn a top
 ## Directions URL
 
 ```
-https://maps.googleapis.com/maps/api/directions/json?origin=place_id:ChIJa6ie7nx51YkRkHcnp0Jdttw&destination=place_id:ChIJq6p6ZumM1YkRwlenRs5y5SY&mode=walking&arrival_time=1674219600&key=AIzaSyCM-WWHYHIKY-do4kquMy9Z4wQaQx51AuE
+[https://maps.googleapis.com/maps/api/directions/json?origin=place_id:ChIJa6ie7nx51YkRkHcnp0Jdttw&destination=place_id:ChIJq6p6ZumM1YkRwlenRs5y5SY&mode=walking&arrival_time=1674219600&key=AIzaSyCM-WWHYHIKY-do4kquMy9Z4wQaQx51AuE](https://maps.googleapis.com/maps/api/directions/json?origin=place_id:ChIJa6ie7nx51YkRkHcnp0Jdttw&destination=place_id:ChIJq6p6ZumM1YkRwlenRs5y5SY&mode=walking&arrival_time=1674219600&key=AIzaSyCM-WWHYHIKY-do4kquMy9Z4wQaQx51AuE)
 ```
 
 ## Next paste the full JSON response to this query here:
