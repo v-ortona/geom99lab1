@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!-- source: https://developers.google.com/maps/documentation/javascript/overview#maps_map_simple-html -->
+<!-- STUDENTS: Modify this file to provided the Google API key to get it working, 
+               then modify the lat and lng and zoom to point to a place you know  -->
+<html>
+
+<head>
+    <title>Simple Map</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <style>
+        /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+        #map {
+            height: 100%;
+        }
+
+        /* Optional: Makes the sample page fill the window. */
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <script>
+        let map;
+
+        function initMap() {
+            const map = new google.maps.Map(document.getElementById("map"), {
+                center: { lat: 45.5577449, lng: -73.5520287 },
+                zoom: 17,
+                mapTypeId: "satellite",
+            });
+            map.setTilt(45);
+
+            //Points of interest to display
+            let pois = [
+                { latlng: { lat: 45.5961087, lng: -73.5801356 }, name: 'Plaza Le Rizz' },
+                { latlng: { lat: 45.4908646, lng: -73.65111 }, name: 'Dollar Cinema' },
+                { latlng: { lat: 45.4956747, lng: -73.6569279 }, name: 'Orange Julep' },
+                { latlng: { lat: 45.5577449, lng: -73.5520287 }, name: 'Olympic Stadium' }
+            ];
+
+            pois.forEach(poi => {
+                new google.maps.Marker({
+                    position: poi.latlng,
+                    map,
+                    title: poi.name,
+                });
+            });
+        }
+
+
+    </script>
+</head>
+
+<body>
+    <div id="map"></div>
+
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <!-- *** STUDENTS: Replace YOUR_API_KEY text with provided key in class for property src in next line *** -->
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCM-WWHYHIKY-do4kquMy9Z4wQaQx51AuE&callback=initMap&v=weekly"
+        async>
+        </script>
+</body>
+
+</html>
