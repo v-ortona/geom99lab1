@@ -5,7 +5,7 @@
 <html>
 
 <head>
-    <title>Simple Map</title>
+    <title>Montreal Places of Interest</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <style>
         /* Always set the map height explicitly to define the size of the div
@@ -21,31 +21,112 @@
             margin: 0;
             padding: 0;
         }
+
+
+        /* HTML marker styles taken from: https://github.com/googlemaps/js-samples/tree/main/samples/advanced-markers-html */
+        .advanced-marker {
+            background-color: #4285F4;
+            border-radius: 8px;
+            color: #FFFFFF;
+            font-size: 14px;
+            padding: 10px 15px;
+            position: relative;
+        }
+
+        .advanced-marker::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 100%;
+            transform: translate(-50%, 0);
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-top: 8px solid #4285F4;
+        }
     </style>
     <script>
         let map;
 
+        //Points of interest to display
+        //taken from https://github.com/googlemaps/js-samples/tree/main/samples/advanced-markers-html-simple
+        let pois = [
+            { latlng: { lat: 45.5577449, lng: -73.5520287 }, name: 'Olympic Stadium', zoom: 17 },
+            { latlng: { lat: 45.5631151, lng: -73.5527112 }, name: 'Saputo Stadium', zoom: 19 },
+            { latlng: { lat: 45.4908646, lng: -73.65111 }, name: 'Dollar Cinema (RIP)', zoom: 18 },
+            { latlng: { lat: 45.4956747, lng: -73.6569279 }, name: 'Orange Julep', zoom: 20 },
+            { latlng: { lat: 45.5242352, lng: -73.5358121 }, name: 'La Ronde', zoom: 17 },
+            { latlng: { lat: 45.4998688, lng: -73.5437756 }, name: 'Habitat 67', zoom: 19 },
+            { latlng: { lat: 45.5035558, lng: -73.5869189 }, name: 'Scenic Overlook', zoom: 19 },
+            { latlng: { lat: 45.5665286, lng: -73.7428805 }, name: 'Cosmodome', zoom: 20 },
+            { latlng: { lat: 45.5227576, lng: -73.6019547 }, name: 'St-Viateur Bagel', zoom: 22 },
+            { latlng: { lat: 45.5360657, lng: -73.6151061 }, name: 'Jean-Talon Market', zoom: 20 }
+        ];
+
+        let currentPOI = 0
+
+        //Creates a control that recenters the map on Chicago.
+        //taken from https://github.com/googlemaps/js-samples/tree/main/samples/control-custom
+        function nextPOI(map) {
+            const controlButton = document.createElement("button");
+            // Set CSS for the control.
+            controlButton.style.backgroundColor = "#fff";
+            controlButton.style.border = "2px solid #fff";
+            controlButton.style.borderRadius = "3px";
+            controlButton.style.boxShadow = "0 2px 6px rgba(0,0,0,.3)";
+            controlButton.style.color = "rgb(25,25,25)";
+            controlButton.style.cursor = "pointer";
+            controlButton.style.fontFamily = "Roboto,Arial,sans-serif";
+            controlButton.style.fontSize = "16px";
+            controlButton.style.lineHeight = "38px";
+            controlButton.style.margin = "8px 0 22px";
+            controlButton.style.padding = "0 5px";
+            controlButton.style.textAlign = "center";
+            controlButton.textContent = "Next POI";
+            controlButton.title = "Click to view next POI";
+            controlButton.type = "button";
+            // Setup the click event listeners: simply set the map to Chicago.
+            controlButton.addEventListener("click", () => {
+                map.setCenter(pois[currentPOI].latlng);
+                map.setZoom(pois[currentPOI].zoom)
+                if (currentPOI == pois.length - 1) {
+                    currentPOI = 0
+                }
+                else {
+                    currentPOI = currentPOI + 1
+                }
+            });
+            return controlButton;
+        }
+        //taken from https://github.com/googlemaps/js-samples/tree/main/samples/aerial-simple
         function initMap() {
-            const map = new google.maps.Map(document.getElementById("map"), {
+            map = new google.maps.Map(document.getElementById("map"), {
                 center: { lat: 45.5577449, lng: -73.5520287 },
                 zoom: 17,
                 mapTypeId: "satellite",
+                mapId: 'DEMO_MAP_ID' //needed for advanced markers
             });
             map.setTilt(45);
 
-            //Points of interest to display
-            let pois = [
-                { latlng: { lat: 45.5961087, lng: -73.5801356 }, name: 'Plaza Le Rizz' },
-                { latlng: { lat: 45.4908646, lng: -73.65111 }, name: 'Dollar Cinema' },
-                { latlng: { lat: 45.4956747, lng: -73.6569279 }, name: 'Orange Julep' },
-                { latlng: { lat: 45.5577449, lng: -73.5520287 }, name: 'Olympic Stadium' }
-            ];
+            // Create the DIV to hold the control.
+            const nextPOIDiv = document.createElement("div");
+            // Create the control.
+            const nextPOIControl = nextPOI(map);
+            // Append the control to the DIV.
+            nextPOIDiv.appendChild(nextPOIControl);
+            map.controls[google.maps.ControlPosition.TOP_CENTER].push(nextPOIDiv);
 
+            //taken from https://github.com/googlemaps/js-samples/tree/main/samples/advanced-markers-html-simple
             pois.forEach(poi => {
-                new google.maps.Marker({
-                    position: poi.latlng,
+                const marker = document.createElement("div");
+                marker.className = "advanced-marker";
+                marker.textContent = poi.name
+
+                const markerView = new google.maps.marker.AdvancedMarkerView({
                     map,
-                    title: poi.name,
+                    position: poi.latlng,
+                    content: marker
                 });
             });
         }
@@ -60,7 +141,7 @@
     <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
     <!-- *** STUDENTS: Replace YOUR_API_KEY text with provided key in class for property src in next line *** -->
     <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCM-WWHYHIKY-do4kquMy9Z4wQaQx51AuE&callback=initMap&v=weekly"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDv3MGflguusDaLmV_-BUlmuoUI4EbM88w&callback=initMap&libraries=marker&v=beta"
         async>
         </script>
 </body>
